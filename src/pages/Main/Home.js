@@ -4,7 +4,7 @@ import ProductCard from "../../components/ProductCard";
 const Home = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetch("products.json") //http://localhost:5000/products
+    fetch("http://localhost:5000/products")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
