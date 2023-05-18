@@ -1,13 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import ProductCard from "../../components/ProductCard";
+import { getProduct } from "../../features/products/productSlice";
 
 const Home = () => {
-  const [products, setProducts] = useState([]);
+  // const [products, setProducts] = useState([]);
+
+  const dispatch = useDispatch();
+  const products = useSelector(state => state.product.products);
+  console.log(products);
+
   useEffect(() => {
-    fetch("http://localhost:5000/products")
-      .then((res) => res.json())
-      .then((data) => setProducts(data));
-  }, []);
+    // fetch("http://localhost:5000/products")
+    //   .then((res) => res.json())
+    //   .then((data) => setProducts(data));
+    dispatch(getProduct())
+
+  }, [dispatch]);
 
   const activeClass = "text-white  bg-indigo-500 border-white";
 
