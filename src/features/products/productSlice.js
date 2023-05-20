@@ -20,10 +20,8 @@ export const getProduct = createAsyncThunk("products/getProduct", async () => {
 })
 
 export const addProduct = createAsyncThunk("products/addProduct", async (data) => {
-
     const products = postProduct(data);
     return products;
-
 })
 
 
